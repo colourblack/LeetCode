@@ -24,7 +24,7 @@ public class SingleNum {
 
         int single = 0;
         for(int num : nums) {
-            single ^= num;
+            single = single ^ num;
         }
         return single;
     }
