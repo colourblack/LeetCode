@@ -1,6 +1,8 @@
 package array.num20;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 /**
@@ -24,7 +26,6 @@ public class ValidParentheses {
         valid.add(']');
         valid.add('{');
         valid.add('}');
-
         char[] arr = s.toCharArray();
         int len = arr.length;
         boolean result = true;
