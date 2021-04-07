@@ -16,36 +16,36 @@ public class QuickSort {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(QuickSort.class);
 
+
     public void quickSort(int[] nums, int left, int right) {
         if (left >= right) {
             return ;
         }
 
-        int leftIndex = left;
-        int rightIndex = right;
+        int i = left;
+        int j = right;
         int key = nums[right];
-
-        while (left < right) {
-            while (left < right && nums[left] <= key) {
-                left++;
+        while (i < j) {
+            while (i < j && nums[i] <= key) {
+                i++;
             }
 
-            while (left < right && nums[right] >= key ) {
-                right--;
+            while (i < j && nums[j] >= key) {
+                j--;
             }
 
-            if (left < right) {
-                nums[left] ^= nums[right];
-                nums[right] ^= nums[left];
-                nums[left] ^= nums[right];
+            if (i < j) {
+                nums[i] ^= nums[j];
+                nums[j] ^= nums[i];
+                nums[i] ^= nums[j];
             }
         }
 
-        nums[rightIndex] = nums[left];
-        nums[left] = key;
+        nums[right] = nums[i];
+        nums[i] = key;
 
-        quickSort(nums, leftIndex, left - 1);
-        quickSort(nums, left + 1, rightIndex);
+        quickSort(nums, left, i - 1);
+        quickSort(nums, i + 1, right);
     }
 
     @Test
