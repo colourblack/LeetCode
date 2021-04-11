@@ -16,7 +16,6 @@ public class QuickSort {
 
     private final static Logger LOGGER = LoggerFactory.getLogger(QuickSort.class);
 
-
     public void quickSort(int[] nums, int left, int right) {
         if (left >= right) {
             return ;
@@ -25,6 +24,7 @@ public class QuickSort {
         int i = left;
         int j = right;
         int key = nums[right];
+
         while (i < j) {
             while (i < j && nums[i] <= key) {
                 i++;
@@ -35,16 +35,16 @@ public class QuickSort {
             }
 
             if (i < j) {
-                nums[i] ^= nums[j];
-                nums[j] ^= nums[i];
-                nums[i] ^= nums[j];
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
             }
         }
 
         nums[right] = nums[i];
         nums[i] = key;
 
-        quickSort(nums, left, i - 1);
+        quickSort(nums, left , i - 1);
         quickSort(nums, i + 1, right);
     }
 
