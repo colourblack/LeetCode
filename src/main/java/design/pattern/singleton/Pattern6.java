@@ -22,7 +22,7 @@ public class Pattern6 {
 
     }
 
-    public synchronized static Pattern6 getInstance(){
+    public static Pattern6 getInstance(){
         if ((PATTERN_6 == null)) {
             synchronized (Pattern6.class){
                 if (PATTERN_6 == null) {
@@ -40,7 +40,7 @@ public class Pattern6 {
     /*
      * 为什么是双重校验锁实现单例模式呢？
      *
-     * 第一次校验： 也就是第一个if（singleton==null），这个是为了代码提高代码执行效率，由于单例模式只要一次创建实例即可，
+     * 第一次校验： 也就是第一个if（singleton==null），这个是为了提高代码执行效率，由于单例模式只要一次创建实例即可，
      * 所以当创建了一个实例之后，再次调用getInstance方法就不必要进入同步代码块，不用竞争锁。直接返回前面创建的实例即可。
      *
      * 第二次校验： 也就是第二个if（singleton==null），这个校验是防止二次创建实例，假如有一种情况，

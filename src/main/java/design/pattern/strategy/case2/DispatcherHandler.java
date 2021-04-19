@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class DispatcherHandler{
 
-    private Map<String, Handler> collection;
+    private final Map<String, Handler> collection;
 
     DispatcherHandler () {
         collection = new HashMap<>();
@@ -22,8 +22,5 @@ public class DispatcherHandler{
     public void dispatch(Request request) {
         collection.get(request.getUrl()).doHandle(request.getCommand());
     }
-
-
-
 
 }
