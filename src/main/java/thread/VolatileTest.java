@@ -1,4 +1,4 @@
-package lock;
+package thread;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,7 +31,9 @@ public class VolatileTest {
             threadGroup[i].start();
         }
 
-        Thread.sleep(1000);
+        while (Thread.activeCount() > 2) {
+            Thread.yield();
+        }
 
         log.info("race: {}", VolatileTest.race);
 
